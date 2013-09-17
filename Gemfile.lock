@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    qimport (0.0.2)
+    qimport (0.1.1)
 
 GEM
   remote: https://rubygems.org/

@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
   s.name        = 'qimport'
-  s.version     = '0.0.2'
-  s.date        = '2013-09-16'
+  s.version     = '0.1.0'
+  s.date        = '2013-09-17'
   s.summary     = "qimport"
-  s.description = "Generate Quickbooks IIF files painlessly"
+  s.description = "Qimport is a library for building Quickbooks iif files."
   s.authors     = ["Brett Basler"]
   s.email       = 'geekbrett@gmail.com'
-  s.files       = ["lib/qimport.rb", "lib/qimport/group.rb"]
+  s.files       = ["lib/qimport/import.rb", "lib/qimport/group.rb"]
   s.homepage    =
     'http://github.com/br3tt/qimport'
   s.license       = 'MIT'

@@ -10,4 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://github.com/br3tt/qimport'
   s.license       = 'MIT'
+
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 end

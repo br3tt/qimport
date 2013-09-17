@@ -7,12 +7,14 @@ Qimport is a library for building Quickbooks iif files.
     qimport = Qimport.new('/path/to/file.iif')
     qimport.group(:groupheader)
       .line({subitem: 'value', anotherfield: 'another value'})
+      .line({anotherfield: 'a different value', anewfield: 'some new value'})
     qimport.save
 
 This would generate the following iif file
 
-    !GROUPHEADER	SUBITEM	ANOTHERFIELD
-    GROUPHEADER	value	another value
+    !GROUPHEADER	SUBITEM	ANOTHERFIELD	ANEWFIELD
+    GROUPHEADER	value	another value	
+    GROUPHEADER		a different value	some new value
 
 ### Quickbooks Timer Activities Example
 

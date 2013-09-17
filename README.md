@@ -5,11 +5,11 @@ Qimport is a library for building Quickbooks iif files.
 ## Usage
 
 ```ruby
-qimport = Qimport.new('/path/to/file.iif')
-qimport.group(:groupheader)
+import = Qimport::Import.new('/path/to/file.iif')
+import.group(:groupheader)
   .line({subitem: 'value', anotherfield: 'another value'})
   .line({anotherfield: 'a different value', anewfield: 'some new value'})
-qimport.save
+import.save
 ```
 
 This would generate the following iif file
@@ -21,8 +21,8 @@ This would generate the following iif file
 ### Quickbooks Timer Activities Example
 
 ```ruby
-qimport = Qimport.new('/path/to/file.iif')
-qimport
+import = Qimport::Import.new('/path/to/file.iif')
+import
   .group(:timerhdr)
     .line({
       ver: 8,
@@ -33,7 +33,7 @@ qimport
       companycreatetime: 1378838210
     })
 
-qimport
+import
   .group(:hdr)
     .line({
       prod: 'Quickbooks Pro for Windows',
@@ -46,7 +46,7 @@ qimport
       accntntsplittime: 0
     })
 
-qimport
+import
   .group(:timeact)
     .line({
       date: '9/16/2013',
@@ -71,5 +71,5 @@ qimport
     billingstatus: 0
   })
 
-qimport.save
+import.save
 ```

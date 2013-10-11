@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'qimport'
-  s.version     = '0.1.1'
-  s.date        = '2013-09-17'
+  s.version     = '0.1.2'
+  s.date        = '2013-10-10'
   s.summary     = "qimport"
   s.description = "Qimport is a library for building Quickbooks iif files."
   s.authors     = ["Brett Basler"]

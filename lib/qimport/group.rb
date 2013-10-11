@@ -3,7 +3,7 @@ module Qimport
     def initialize(*headers)
       @headers = {}
       headers.each do |header|
-        @headers[header] = {lines: [], columns: []}
+        @headers[header] = {:lines => [], :columns => []}
       end
     end
 
@@ -19,14 +19,18 @@ module Qimport
 
     def to_s
       s = ''
-      @headers.map do |k,v|
+      @headers.each do |k,v|
         header = k.to_s.upcase
-        columns_to_s = v[:columns].map{|c| c.to_s.upcase}.join("\t")
+        lines = v[:lines]
+        columns = v[:columns]
+
+        columns_to_s = columns.map{|c| c.to_s.upcase}.join("\t")
 
         s << "!#{header}\t#{columns_to_s}\r\n"
 
-        v[:lines].map do |line|
-          s << ([header] + array_to_empty_hash(v[:columns]).merge(line).map{|k,v| v }).join("\t")
+        lines.each do |line|
+          empty_columns = array_to_empty_hash(columns)
+          s << ([header] + empty_columns.merge(line).map{|k,v| v }).join("\t")
           s << "\r\n"
         end
       end
@@ -35,11 +39,7 @@ module Qimport
 
     private
     def array_to_empty_hash(array)
-      hash = {}
-      array.each do |i|
-        hash[i] = ''
-      end
-      hash
+      Hash[array.zip []]
     end
   end
 end
